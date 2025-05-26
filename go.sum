@@ -1,5 +1,7 @@
 github.com/GP-Hacks/proto v1.3.0 h1:K2sb7aylKJL6r3ROEkUfCPhYFlAwouEp5WWb2DIQMCg=
 github.com/GP-Hacks/proto v1.3.0/go.mod h1:bA85LnYV4CBZwtSiarvcHjhAzDu/nGd7EvI9ImTOVIc=
+github.com/GP-Hacks/proto v1.3.1 h1:9vysxdFb8O7h3LcgnxfU8313Kf37Fj/QEnivUT4eqbY=
+github.com/GP-Hacks/proto v1.3.1/go.mod h1:bA85LnYV4CBZwtSiarvcHjhAzDu/nGd7EvI9ImTOVIc=
 github.com/cespare/xxhash/v2 v2.1.2 h1:YRXhKfTDauu4ajMg1TPgFO5jnlC2HCbmLXMcTG5cbYE=
 github.com/cespare/xxhash/v2 v2.1.2/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/cespare/xxhash/v2 v2.3.0/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
