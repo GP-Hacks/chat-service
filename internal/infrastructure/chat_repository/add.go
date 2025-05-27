@@ -10,7 +10,7 @@ import (
 )
 
 func (r *ChatRepository) Add(ctx context.Context, userID int64, msg *models.Message) error {
-	q := `INSERT INTO chat_history (user_id, content, role) VALUES ($1, $2, $3, $4, $5)`
+	q := `INSERT INTO chat_history (user_id, content, role) VALUES ($1, $2, $3)`
 
 	if _, err := r.pool.Exec(ctx, q, userID, msg.Content, msg.Role); err != nil {
 		if pgErr, ok := err.(*pgconn.PgError); ok {
