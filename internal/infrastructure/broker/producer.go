@@ -30,7 +30,7 @@ func NewKafkaProducer(broker, topic string) *KafkaProducer {
 	}
 }
 
-func (p *KafkaProducer) Send(msg *models.Message) error {
+func (p *KafkaProducer) Send(id string,  *models.Message) error {
 	dto := respDto{
 		Status:    "success",
 		Content:   msg.Content,
@@ -43,7 +43,7 @@ func (p *KafkaProducer) Send(msg *models.Message) error {
 
 	for i := 0; i < 3; i++ {
 		err = p.writer.WriteMessages(context.Background(), kafka.Message{
-			Key:   []byte(msg.ID),
+			Key:   []byte(id),
 			Value: data,
 		})
 

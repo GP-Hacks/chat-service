@@ -20,7 +20,7 @@ type messageDto struct {
 	Content   string
 }
 
-func NewKafkaConsumer(broker, topic, groupID string) *KafkaConsumer {
+func NewKafkaConsumer(broker, topic, groupID string, s *chat_service.ChatService) *KafkaConsumer {
 	return &KafkaConsumer{
 		reader: kafka.NewReader(kafka.ReaderConfig{
 			Brokers:  []string{broker},
@@ -29,6 +29,7 @@ func NewKafkaConsumer(broker, topic, groupID string) *KafkaConsumer {
 			MinBytes: 1e3, // 1KB
 			MaxBytes: 1e6, // 1MB
 		}),
+		service: s,
 	}
 }
 
