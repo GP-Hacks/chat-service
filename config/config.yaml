@@ -1,0 +1,18 @@
+grpc:
+  port:
+  auth_service_address: ""
+
+logging:
+  is_production: false
+  vector_url: ""
+
+ai_model:
+  model_uri: ""
+  max_tokens: 0
+  temperature: 0.0
+  address: "" 
+
+kafka:
+  topic: ""
+  broker: ""
+  group_id: ""

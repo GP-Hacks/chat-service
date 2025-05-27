@@ -32,7 +32,14 @@ type Config struct {
 		Temperature float32 `mapstructure:"temperature"`
 		AuthToken   string  `mapstructure:"auth_token"`
 		Address     string  `mapstructure:"address"`
+		BaseContext string  `mapstructure:"base_context"`
 	} `mapstructure:"ai_model"`
+
+	Kafka struct {
+		Topic   string `mapstructure:"topic"`
+		Broker  string `mapstructure:"broker"`
+		GroupID string `mapstructure:"group_id"`
+	} `mapstructure:"kafka"`
 }
 
 var Cfg Config
@@ -98,6 +105,7 @@ func setDefaults(v *viper.Viper) {
 	v.SetDefault("ai_model.temperature", "0.0")
 	v.SetDefault("ai_model.auth_token", "")
 	v.SetDefault("ai_model.address", "")
+	v.SetDefault("ai_model.base_context", "")
 }
 
 func validateConfig(cfg *Config) error {
