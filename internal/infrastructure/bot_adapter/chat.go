@@ -4,11 +4,13 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 
 	"github.com/GP-Hacks/chat/internal/config"
 	"github.com/GP-Hacks/chat/internal/models"
+	"github.com/rs/zerolog/log"
 )
 
 type (
@@ -101,6 +103,7 @@ func (r *BotAdapter) Chat(ctx context.Context, messages ...models.Message) ([]mo
 	if err != nil {
 		return nil, err
 	}
+	log.Debug().Msg(fmt.Sprintf("LLM req: %v", reqDto))
 
 	req, err := http.NewRequest("POST", config.Cfg.AIModel.Address, bytes.NewBuffer(jsonData))
 	if err != nil {
@@ -127,6 +130,7 @@ func (r *BotAdapter) Chat(ctx context.Context, messages ...models.Message) ([]mo
 	if err != nil {
 		return nil, err
 	}
+	log.Debug().Msg(fmt.Sprintf("LLM answer body: %v", responseDTO))
 
 	return convertDtoToMessages(responseDTO.Result.Alternatives...), nil
 }
