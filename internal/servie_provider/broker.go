@@ -7,7 +7,7 @@ import (
 
 func (s *ServiceProvider) KafkaConsumer() *broker.KafkaConsumer {
 	if s.kafkaConsumer == nil {
-		s.kafkaConsumer = broker.NewKafkaConsumer(config.Cfg.Kafka.Broker, config.Cfg.Kafka.Topic, config.Cfg.Kafka.GroupID, s.ChatService())
+		s.kafkaConsumer = broker.NewKafkaConsumer(config.Cfg.Kafka.Broker, config.Cfg.Kafka.TopicQuestions, config.Cfg.Kafka.GroupID, s.ChatService())
 	}
 
 	return s.kafkaConsumer
@@ -15,7 +15,7 @@ func (s *ServiceProvider) KafkaConsumer() *broker.KafkaConsumer {
 
 func (s *ServiceProvider) KafkaProducer() *broker.KafkaProducer {
 	if s.kafkaProducer == nil {
-		s.kafkaProducer = broker.NewKafkaProducer(config.Cfg.Kafka.Broker, config.Cfg.Kafka.Topic)
+		s.kafkaProducer = broker.NewKafkaProducer(config.Cfg.Kafka.Broker, config.Cfg.Kafka.TopicAnsers)
 	}
 
 	return s.kafkaProducer
