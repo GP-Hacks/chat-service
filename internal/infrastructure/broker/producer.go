@@ -30,7 +30,7 @@ func NewKafkaProducer(broker, topic string) *KafkaProducer {
 	}
 }
 
-func (p *KafkaProducer) Send(id string,  *models.Message) error {
+func (p *KafkaProducer) Send(id string, msg *models.Message) error {
 	dto := respDto{
 		Status:    "success",
 		Content:   msg.Content,
