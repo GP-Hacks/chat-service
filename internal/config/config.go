@@ -36,9 +36,10 @@ type Config struct {
 	} `mapstructure:"ai_model"`
 
 	Kafka struct {
-		Topic   string `mapstructure:"topic"`
-		Broker  string `mapstructure:"broker"`
-		GroupID string `mapstructure:"group_id"`
+		TopicQuestions string `mapstructure:"topic_questions"`
+		TopicAnsers    string `mapstructure:"topic_answers"`
+		Broker         string `mapstructure:"broker"`
+		GroupID        string `mapstructure:"group_id"`
 	} `mapstructure:"kafka"`
 }
 
