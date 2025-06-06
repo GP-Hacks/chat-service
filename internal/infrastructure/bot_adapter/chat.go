@@ -110,7 +110,7 @@ func (r *BotAdapter) Chat(ctx context.Context, messages ...models.Message) ([]mo
 		return nil, err
 	}
 
-	req.Header.Set("Authorization", "Bearer "+config.Cfg.AIModel.AuthToken)
+	req.Header.Set("Authorization", "Bearer "+r.tokenUpdater.CurrentToken)
 	req.Header.Set("Content-Type", "application/json")
 
 	client := &http.Client{}
@@ -120,6 +120,7 @@ func (r *BotAdapter) Chat(ctx context.Context, messages ...models.Message) ([]mo
 	}
 	defer resp.Body.Close()
 
+	log.Debug().Msg(fmt.Sprintf("LLM answer status: %v", resp.Status))
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
