@@ -3,7 +3,7 @@ grpc:
   auth_service_address: "auth-service:8080"
 
 logging:
-  is_production: false
+  is_production: ${APP_LOGGIN_IS_PRODUCTION}
   vector_url: "vector:8080"
 
 ai_model:
