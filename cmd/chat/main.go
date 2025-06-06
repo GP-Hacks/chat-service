@@ -25,7 +25,7 @@ func main() {
 
 	proto.RegisterChatServiceServer(grpcServer, serviceProvider.ChatController())
 
-	serviceProvider.KafkaConsumer().Start()
+	go serviceProvider.KafkaConsumer().Start()
 
 	list, err := net.Listen("tcp", ":"+config.Cfg.Grpc.Port)
 	if err != nil {
