@@ -16,7 +16,8 @@ func (s *ServiceProvider) AuthAdapter() *auth_adapter.AuthAdapter {
 
 func (s *ServiceProvider) BotAdapter() *bot_adapter.BotAdapter {
 	if s.botAdapter == nil {
-		s.botAdapter = bot_adapter.NewBotAdapter(config.Cfg.AIModel.BaseContext)
+		s.TokenUpdater().Start()
+		s.botAdapter = bot_adapter.NewBotAdapter(config.Cfg.AIModel.BaseContext, s.TokenUpdater())
 	}
 
 	return s.botAdapter
