@@ -3,7 +3,6 @@ module github.com/GP-Hacks/chat
 go 1.24.2
 
 require (
-	github.com/GP-Hacks/proto v1.3.1
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/jackc/pgx/v5 v5.7.5
 	github.com/rs/zerolog v1.34.0
@@ -14,6 +13,7 @@ require (
 )
 
 require (
+	github.com/GP-Hacks/proto v1.3.2 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/fsnotify/fsnotify v1.8.0 // indirect
